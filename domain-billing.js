@@ -8,7 +8,7 @@ export function monthlyCost(subscription) {
 export function monthlyTotal(subscriptions) {
   return subscriptions
     .filter(subscription => subscription.status === 'active')
-    .reduce((total, subscription) => total + subscription.amountCents, 0);
+    .reduce((total, subscription) => total + monthlyCost(subscription), 0);
 }
 
 export function categoryTotals(subscriptions) {
