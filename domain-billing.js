@@ -1,13 +1,23 @@
 export function monthlyCost(subscription) {
-  return subscription.status === 'active' ? subscription.amountCents : 0;
+  if (subscription.status !== 'active') return 0;
+  return subscription.billingCycle === 'annual'
+    ? subscription.amountCents / 12
+    : subscription.amountCents;
 }
+
 export function monthlyTotal(subscriptions) {
-  return subscriptions.reduce((total, subscription) => total + monthlyCost(subscription), 0);
+  return subscriptions
+    .filter(subscription => subscription.status === 'active')
+    .reduce((total, subscription) => total + subscription.amountCents, 0);
 }
+
 export function categoryTotals(subscriptions) {
   const totals = new Map();
   for (const subscription of subscriptions) {
-    totals.set(subscription.category, (totals.get(subscription.category) || 0) + monthlyCost(subscription));
+    const cost = monthlyCost(subscription);
+    totals.set(subscription.category, (totals.get(subscription.category) || 0) + cost);
   }
-  return [...totals.entries()].filter(([, cost]) => cost > 0).sort((a, b) => b[1] - a[1]);
+  return [...totals.entries()]
+    .filter(([, cost]) => cost > 0)
+    .sort((a, b) => b[1] - a[1]);
 }

@@ -18,8 +18,9 @@
     <main id="overview">
       <section id="page-header"></section>
       <section id="summary" class="summary-grid" aria-label="Spending overview"></section>
+      <section id="cash-forecast" class="panel forecast-panel" aria-label="Upcoming spending forecast"></section>
       <div class="content-grid"><section class="panel" id="subscriptions"><div id="table-header"></div><div id="subscription-list"></div></section><aside id="insights"></aside></div>
-      <footer>Made for a little more clarity. <span>All amounts and services in this workspace are illustrative.</span></footer>
+      <footer>Made for a little more clarity. <span>Illustrative data · Demo date: Dec 1, 2026.</span></footer>
     </main>
   </div>
   <dialog id="subscription-dialog"><form id="subscription-form"><div class="dialog-heading"><h2>Add subscription</h2><button class="icon-button" type="button" id="close-dialog" aria-label="Close">×</button></div><label>Service name<input name="name" maxlength="60" required placeholder="e.g. Writing assistant"></label><label>Category<select name="category"><option>AI tools</option><option>Entertainment</option><option>Productivity</option><option>Storage</option></select></label><div id="billing-fields"></div><label>Next payment<input name="nextBilling" type="date" required></label><p id="form-error" role="alert"></p><button class="primary" type="submit">Add subscription</button></form></dialog>
