@@ -8,7 +8,7 @@ function card(label, value, suffix, detail, icon) {
 export function summary(subscriptions) {
   const monthly = monthlyTotal(subscriptions);
   const active = subscriptions.filter(s => s.status === 'active').length;
-  return [card('Monthly spending', money(monthly), '/ mo', 'Your recurring monthly commitments', '↗'),
-    card('Annual projection', money(monthly * 12), '/ yr', 'Based on your current subscriptions', '◷'),
+  return [card('Monthly spending', money(monthly), '/ mo', 'Annual plans averaged into a monthly equivalent', '↗'),
+    card('Annual projection', money(monthly * 12), '/ yr', 'Your monthly equivalent, projected over a year', '◷'),
     card('Active subscriptions', String(active).padStart(2, '0'), 'services', 'Everything in one place', '▤')];
 }
