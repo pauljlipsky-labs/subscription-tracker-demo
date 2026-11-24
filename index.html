@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Subtrack | Your subscriptions, in focus</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <aside class="sidebar">
+    <a class="brand" href="#"><span class="brand-mark">s</span> subtrack<span class="brand-dot">.</span></a>
+    <p class="nav-label">WORKSPACE</p>
+    <a class="nav-item selected" href="#overview"><span>◫</span> Overview</a>
+    <a class="nav-item" href="#subscriptions"><span>▤</span> Subscriptions</a>
+    <div class="sidebar-bottom"><span class="avatar">PL</span><div>Personal workspace<small>Fictional demo data</small></div></div>
+  </aside>
+  <div class="page">
+    <header class="topbar"><span>Personal workspace <span class="breadcrumb">/ Overview</span></span><span class="demo-tag">DEMO WORKSPACE</span></header>
+    <main id="overview">
+      <section id="page-header"></section>
+      <section id="summary" class="summary-grid" aria-label="Spending overview"></section>
+      <div class="content-grid"><section class="panel" id="subscriptions"><div id="table-header"></div><div id="subscription-list"></div></section><aside id="insights"></aside></div>
+      <footer>Made for a little more clarity. <span>All amounts and services in this workspace are illustrative.</span></footer>
+    </main>
+  </div>
+  <dialog id="subscription-dialog"><form id="subscription-form"><div class="dialog-heading"><h2>Add subscription</h2><button class="icon-button" type="button" id="close-dialog" aria-label="Close">×</button></div><label>Service name<input name="name" maxlength="60" required placeholder="e.g. Writing assistant"></label><label>Category<select name="category"><option>AI tools</option><option>Entertainment</option><option>Productivity</option><option>Storage</option></select></label><div id="billing-fields"></div><label>Next payment<input name="nextBilling" type="date" required></label><p id="form-error" role="alert"></p><button class="primary" type="submit">Add subscription</button></form></dialog>
+  <script type="module" src="src/main.js"></script>
+</body>
+</html>
